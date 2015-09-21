@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request match</title>
+</head>
+
+	<body>
+	
+	
+	{% if tooManyCountries %}
+        <a href = 'http://127.0.0.1:8000/main/'>Return to Main Page</a>
+        <form id="profile_form" method="post" action="/findmatch/" enctype="multipart/form-data">
+		{% csrf_token %}
+                            
+    	{{ country_form.as_p }}
+
+    	<input type="submit" name="submit" value="Add!" />
+		</form>
+
+        Add failed.  Please remove a country from your list.  You can just up to 5 at a time.
+
+
+
+    {% else %}
+
+		<form id="profile_form" method="post" action="/findmatch/" enctype="multipart/form-data">
+		{% csrf_token %}
+                            
+    	{{ country_form.as_p }}
+
+    	<input type="submit" name="submit" value="Add!" />
+		</form>
+
+	{% endif %}
+
+	<button class="btn btn-sm btn-primary btn-block" type="submit" name="submit" value="Request match">Request match</button>
+
+
+	</body>
+</html>

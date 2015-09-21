@@ -1,0 +1,19 @@
+<body>
+	<a href = 'http://127.0.0.1:8000/main/'>Return to Main Page</a>
+	<a href = 'http://127.0.0.1:8000/profile/'>Return to Profile Page</a>
+
+	<form class="form-signin" action="/profile/" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+                            
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+
+    <button type="edit_profile" name="submit" value = "Edit Profile"> Save Edits</button>
+	<script type="text/javascript">
+    	document.getElementById("edit_profile").onclick = function () {
+        	location.href = '/main/';
+    	};
+	</script>
+
+	</form>
+</body>

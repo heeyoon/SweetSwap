@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Sweet Swap</title>
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+
+    <!-- CSS -->
+    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/register.css" rel="stylesheet">
+    <link href="/static/font-awesome-4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Exo:300' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <div id="form-wrapper">
+        <form class="form-signin" id="user_form" method="post" action="/register/" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1 class="form-signin-heading">
+            <img src="/static/logo.png" alt="Logo" style="width:55px;height:55px">
+                    Sweet Swap</h1>
+            {{ user_form.username.errors }}
+            {{ user_form.email.errors }}
+            {{ user_form.password.errors }}
+            <font size="2">Register with <i class="fa fa-facebook-square"></i> or </font>
+            <label for="id_username" class="sr-only">Username</label>
+            <input type="text" name="username" maxlength="30" id="id_username" class="form-control" placeholder="Username" required autofocus>
+            <label for="id_email" class="sr-only">Email Address</label>
+            <input type="email" name="email" maxlength="75" id="id_email" class="form-control" placeholder="Email address" required autofocus>
+            <label for="id_password" class="sr-only">Password</label>
+            <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+            <div id = "button-wrapper">
+                <button class="btn btn-sm btn-primary btn-block" type="submit" name="submit" value="Register">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
